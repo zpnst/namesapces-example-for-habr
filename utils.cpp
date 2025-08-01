@@ -29,7 +29,7 @@ void DumpProccessInfo(process *proc) {
     cout << "Namespaces: " << endl;
     cout << "Array NS: " << endl;
     cout << "\tArray Len: " << proc->namespaces->ans->arr_len << endl;
-    cout << "\tArray: " << getStringArray(proc->namespaces->ans->array) << endl << endl;
+    cout << "\tArray: " << getStringArray(proc->namespaces->ans->array) << endl;
 
     cout << "String NS: " << endl;
     cout << "\tString Len: " << proc->namespaces->sns->str_len << endl;

@@ -35,11 +35,11 @@ struct string_ns {
 
 /**
  * Структура для описания пространста имён процесса, имеет два 
- * пространства имён: пространсто массивов и пространсто строк
+ * пространства имён: пространство массивов и пространство строк
  */
 struct process_namespaces {
-    array_ns  *ans; /* пространсто массивов  */
-    string_ns *sns; /* пространсто строк */
+    array_ns  *ans; /* пространство массивов  */
+    string_ns *sns; /* пространство строк */
 };
 
 struct process;
@@ -60,10 +60,10 @@ struct process {
     process_namespaces *namespaces;
 
     void unshare(NAMESPACES ns);
-    process *forkProcess(string new_process_name);
-    
     void setNewString(string str);
     void setNewArray(vector<int> arr);
+
+    process *forkProcess(string new_process_name);
 };
 
 /**

@@ -119,7 +119,7 @@ process *CreateInitProcess(string init_process_name) {
     /* Выделение памяти под пространства имён init процесса */
     process_namespaces *init_ns = new process_namespaces;
 
-    /* Выделение памяти под базовые пространста имён */
+    /* Выделение памяти под базовые пространства имён */
     array_ns* init_ans = new array_ns;
     string_ns* init_sns = new string_ns;
 
