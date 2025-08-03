@@ -35,7 +35,6 @@ process *process::forkProcess(string new_process_name) {
 
     /* Новый процесс становится ребёнком того процесса,
        через который был вызван метод forkProcess */
-
     child_proc* new_child = new child_proc;
     new_child->proc = new_proc;
     new_child->next = nullptr;
