@@ -4,7 +4,7 @@ This example has memory leaks, so it is used only for educational purposes.
 
 Type `make run` and examine the terminal output `<(0_0)>`.
 
-`make run` result:
+## `make run` result:
 
 1) ---
 <img src="images/0.png" alt="" width="600">
