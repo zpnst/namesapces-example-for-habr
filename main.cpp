@@ -20,7 +20,7 @@ int main(void) {
     /** Отображаем дерево процессов */
     DrawProcessesTree(init_proc);
 
-    cout << colorfyString("INFO", "32") << " :: Processes resources before all manipulations\n" << endl;
+    cout << colorfyString("INFO", "32") << " :: Processes resources before all manipulations" << endl;
 
     /** Смотрим на ресурсы процесса init_proc, komaru_cat_proc и murzik_cat_proc */
     DumpProccessInfo(init_proc);
@@ -31,7 +31,7 @@ int main(void) {
     murzik_cat_proc->setNewString("Hello, New string in init string Namespace!");
 
     cout << colorfyString("ACTION", "33") << " :: murzik_cat_proc changes a string" << endl;
-    cout << colorfyString("INFO", "32") << " :: Processes resources after changing a string by murzik_cat_proc in init string Namespace\n" << endl;
+    cout << colorfyString("INFO", "32") << " :: Processes resources after changing a string by murzik_cat_proc in init string Namespace" << endl;
 
     /** Смотрим на ресурсы процесса init_proc, komaru_cat_proc и murzik_cat_proc */
     DumpProccessInfo(init_proc);
@@ -46,7 +46,7 @@ int main(void) {
     komaru_cat_proc->setNewArray({123, 345, 789, 101112, 131415});
     cout << colorfyString("ACTION", "33") << " :: komaru_cat_proc changes an array in init array Namespace" << endl;
 
-    cout << colorfyString("INFO", "32") << " :: Processes resources after changing a string by komaru_cat_proc in new string Namesapce\n" << endl;
+    cout << colorfyString("INFO", "32") << " :: Processes resources after changing a string by komaru_cat_proc in new string Namesapce" << endl;
 
     /** Смотрим на ресурсы процесса init_proc, komaru_cat_proc и murzik_cat_proc */
     DumpProccessInfo(init_proc);
@@ -63,7 +63,7 @@ int main(void) {
     murzik_cat_proc->setNewArray({42, 137, 314, 271, 161});
     cout << colorfyString("ACTION", "33") << " :: murzik_cat_proc changes an array" << endl;
 
-    cout << colorfyString("INFO", "32") << " :: Processes resources after changing string and array by murzik_cat_proc in new string Namesapce and Array Namespaces\n" << endl;
+    cout << colorfyString("INFO", "32") << " :: Processes resources after changing string and array by murzik_cat_proc in new string Namesapce and Array Namespaces" << endl;
 
     /** Смотрим на ресурсы процесса init, 4 и 7 */
     DumpProccessInfo(init_proc);

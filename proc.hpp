@@ -15,10 +15,10 @@ enum NAMESPACES {
  * Структура, представляющая пространсто массивов
  */
 struct array_ns {
-    int         arr_len; /* длина массива */
-    vector<int> array;   /* указатель на массив */
+    int         arr_len; /* Длина массива */
+    vector<int> array;   /* Указатель на массив */
 
-    /* конструктор по умолчанию */
+    /* Конструктор по умолчанию */
     array_ns();
 };
 
@@ -26,10 +26,10 @@ struct array_ns {
  * Структура, представляющая пространсто строк
  */
 struct string_ns {
-    int    str_len; /* длина строки */
-    string str;     /* обычная строчка */
+    int    str_len; /* Длина строки */
+    string str;     /* Обычная строчка */
 
-    /* конструктор по умолчанию */
+    /* Конструктор по умолчанию */
     string_ns();
 };
 
@@ -38,8 +38,8 @@ struct string_ns {
  * пространства имён: пространство массивов и пространство строк
  */
 struct process_namespaces {
-    array_ns  *ans; /* пространство массивов  */
-    string_ns *sns; /* пространство строк */
+    array_ns  *ans; /* Пространство массивов */
+    string_ns *sns; /* Пространство строк */
 };
 
 struct process;
@@ -53,11 +53,11 @@ struct child_proc {
  * Структура, представляющая процесс
  */
 struct process {
-    int    process_id;
-    string process_name;
+    int    process_id;   /* Идентификатор процесса */
+    string process_name; /* Имя процесса */
     
-    child_proc         *children;
-    process_namespaces *namespaces;
+    child_proc         *children;   /* Список дочерних процессов(детей) */
+    process_namespaces *namespaces; /* Пространства имён процесса */
 
     void unshare(NAMESPACES ns);
     void setNewString(string str);

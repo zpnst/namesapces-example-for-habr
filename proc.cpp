@@ -33,8 +33,6 @@ process *process::forkProcess(string new_process_name) {
     /* Установка родительских пространств имён */
     new_proc->namespaces = this->namespaces;
 
-    process_count += 1;
-
     /* Новый процесс становится ребёнком того процесса,
        через который был вызван метод forkProcess */
 
@@ -55,6 +53,10 @@ process *process::forkProcess(string new_process_name) {
         curr_child->next = new_child;
     }
 
+    /* Инкрементируем счётчик процессов */
+    process_count += 1;
+
+    /* У нового процесса пока что нет детей */
     new_proc->children = nullptr;
 
     return new_proc;
@@ -66,9 +68,10 @@ process *process::forkProcess(string new_process_name) {
 void process::unshare(NAMESPACES ns) {
     process_namespaces *new_namespace = new process_namespaces;
     switch (ns) {
-    /* Хотим получить новое протснвсто мвссивов  */
+    /* Хотим получить новое пространство массивов */
     case NAMESPACES::ARRAY_NS: {
-        /* Cоздаём новое протснвсто мвссивов  */
+        /* Cоздаём новое пространство массивов,
+           пространство строк остаётся старое */
         array_ns* new_ans = new array_ns;
         new_namespace->ans = new_ans;
         new_namespace->sns = this->namespaces->sns;
@@ -76,9 +79,10 @@ void process::unshare(NAMESPACES ns) {
         this->namespaces = new_namespace;
         break;
     }
-    /* Хотим получить новое протснвсто строк  */
+    /* Хотим получить новое пространство строк */
     case NAMESPACES::STRING_NS: {
-        /* Cоздаём новое протснвсто строк  */
+        /* Cоздаём новое пространство строк,
+           пространство массивов остаётся старое */
         string_ns* new_sns = new string_ns;
         new_namespace->sns = new_sns;
         new_namespace->ans = this->namespaces->ans;
@@ -129,7 +133,10 @@ process *CreateInitProcess(string init_process_name) {
     /* Инициализация пространства имён init процесса */
     init_proc->namespaces = init_ns;
 
+    /* Инкрементируем счётчик процессов */
     process_count += 1;
+
+    /* У процесса init пока что нет детей */
     init_proc->children = nullptr;
 
     return init_proc;
