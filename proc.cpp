@@ -27,6 +27,7 @@ process *process::forkProcess(string new_process_name) {
     /* Выделение памяти под новый процесс */
     process *new_proc = new process;
 
+    /* Устанавливаем ID процесса и его имя */
     new_proc->process_id = process_count;
     new_proc->process_name = new_process_name;
 
@@ -126,6 +127,7 @@ process *CreateInitProcess(string init_process_name) {
     array_ns* init_ans = new array_ns;
     string_ns* init_sns = new string_ns;
 
+    /* Устанавливаем только что созданные пространства имён */
     init_ns->ans = init_ans;
     init_ns->sns = init_sns;
 
