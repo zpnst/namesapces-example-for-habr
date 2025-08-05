@@ -117,6 +117,7 @@ process *CreateInitProcess(string init_process_name) {
     /* Выделение памяти под init процесс */
     process *init_proc = new process;
 
+    /* Устанавливаем ID процесса и его имя */
     init_proc->process_id = process_count;
     init_proc->process_name = init_process_name;
 
