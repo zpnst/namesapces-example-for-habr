@@ -1,7 +1,10 @@
-build:
+bin:
+   @mkdir -p bin
+
+build: bin
 	@g++ main.cpp proc.cpp utils.cpp -o bin/ns
 
-debug_build:
+debug_build: bin
 	@g++ -ggdb -g3 main.cpp proc.cpp utils.cpp -o bin/debug_ns
 
 debug: debug_build
