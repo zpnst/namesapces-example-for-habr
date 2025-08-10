@@ -1,5 +1,5 @@
 bin:
-   @mkdir -p bin
+	@mkdir -p bin
 
 build: bin
 	@g++ main.cpp proc.cpp utils.cpp -o bin/ns
@@ -14,8 +14,7 @@ run: build
 	@./bin/ns
 
 clean: 
-	@rm ./bin/ns
-	@rm ./bin/debug_ns
+	@rm -rf ./bin
 
 mem: build
 	@valgrind  ./bin/ns
